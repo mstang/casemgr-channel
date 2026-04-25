@@ -1,0 +1,13 @@
+{
+  "name": "casemgr-channel",
+  "description": "Push AI work items from CaseMgr — a shared workspace for you and your AI agent — into your Claude Code session as channel events.",
+  "version": "0.1.0",
+  "keywords": [
+    "casemgr",
+    "channel",
+    "mcp",
+    "ai-agents",
+    "agent-memory",
+    "workflow"
+  ]
+}

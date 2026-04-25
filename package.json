@@ -1,0 +1,20 @@
+{
+  "name": "casemgr-channel",
+  "version": "0.1.0",
+  "description": "Claude Code channel plugin that pushes AI work items from CaseMgr into your running Claude Code session.",
+  "license": "MIT",
+  "type": "module",
+  "bin": "./channel.ts",
+  "scripts": {
+    "start": "bun install --no-summary && bun channel.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1"
+  }
+}
