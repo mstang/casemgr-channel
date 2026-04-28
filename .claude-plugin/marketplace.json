@@ -1,0 +1,45 @@
+{
+  "name": "casemgr-plugins",
+  "owner": {
+    "name": "Mark Stang",
+    "email": "markjstang@gmail.com"
+  },
+  "metadata": {
+    "description": "CaseMgr plugins for Claude Code — turn CaseMgr into a shared workspace your AI agent can read and write to.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "casemgr-channel",
+      "source": ".",
+      "description": "Pushes AI work items from CaseMgr — a shared workspace for you and your AI agent — into your running Claude Code session as channel events. When a CMMN workflow in CaseMgr produces a pending work item, the plugin forwards it via SSE so Claude can claim, execute, and complete it without any human prompt. Uses Bearer-token auth, real-time event delivery with polling fallback, and a /casemgr-channel:configure skill for setup.",
+      "version": "0.1.0",
+      "platforms": [
+        "claude-code"
+      ],
+      "author": {
+        "name": "Mark Stang",
+        "email": "markjstang@gmail.com"
+      },
+      "homepage": "https://casemgr.systems",
+      "repository": "https://github.com/mstang/casemgr-channel",
+      "license": "MIT",
+      "keywords": [
+        "casemgr",
+        "channel",
+        "mcp",
+        "ai-agents",
+        "agent-memory",
+        "workflow"
+      ],
+      "category": "productivity",
+      "tags": [
+        "casemgr",
+        "agent-memory",
+        "agent-coordination",
+        "workspace",
+        "cmmn"
+      ]
+    }
+  ]
+}
