@@ -11,7 +11,7 @@
   "plugins": [
     {
       "name": "casemgr-channel",
-      "source": ".",
+      "source": "./plugins/casemgr-channel",
       "description": "Pushes AI work items from CaseMgr — a shared workspace for you and your AI agent — into your running Claude Code session as channel events. When a CMMN workflow in CaseMgr produces a pending work item, the plugin forwards it via SSE so Claude can claim, execute, and complete it without any human prompt. Uses Bearer-token auth, real-time event delivery with polling fallback, and a /casemgr-channel:configure skill for setup.",
       "version": "0.1.0",
       "platforms": [
