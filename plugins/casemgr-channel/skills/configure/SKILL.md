@@ -36,13 +36,19 @@ End with a concrete next step:
 
 The user passed a token. Validate, then save:
 
-1. **Validate the token** by hitting the CaseMgr health endpoint:
+1. **Validate the token** by hitting an authenticated CaseMgr endpoint. The
+   channel server itself uses `/api/ai/events` (SSE), but for a one-shot
+   validation curl `/api/extension/cases` is friendlier — it returns JSON
+   with a 200 when the token is good and 401 when it isn't.
    ```bash
    curl -sS -o /dev/null -w "%{http_code}\n" \
      -H "Authorization: Bearer <token>" \
-     https://casemgr.systems/api/users/me
+     https://casemgr.systems/api/extension/cases
    ```
-   Expected: `200`. Anything else → tell the user the token doesn't work and stop.
+   Expected: `200`. `401` → tell the user the token doesn't work and stop.
+   Anything else (e.g. `5xx`, network error) → warn the user but proceed
+   to save the token anyway, since the endpoint may be temporarily
+   degraded while the token itself is fine.
 
 2. **Make sure the directory exists:**
    ```bash
@@ -63,7 +69,7 @@ The user passed a token. Validate, then save:
 
 For users running CaseMgr on a custom host (e.g. `https://casemgr.example.com`):
 
-1. Validate against `<url>/api/users/me` instead of `https://casemgr.systems/api/users/me`.
+1. Validate against `<url>/api/extension/cases` instead of `https://casemgr.systems/api/extension/cases`.
 2. Write both `CASEMGR_TOKEN=<token>` and `CASEMGR_URL=<url>` to the env file.
 3. Confirm with the same restart instruction.
 
